@@ -1,0 +1,5 @@
+{{#each work in model}}
+ 	{{#link-to 'work' work}} {{work.title}} {{/link-to}}
+{{else}}
+	No works found.
+{{/each}}
