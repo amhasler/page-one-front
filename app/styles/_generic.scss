@@ -1,0 +1,117 @@
+html, body {
+  /* Needed to full-width the conclusion for a timeline */
+  overflow-x: hidden;
+}
+
+body {
+  background-color: $white;
+  font-family: $open-sans-regular;
+  font-size: $font-size;
+}
+
+h1 {
+  font-family: $open-sans-semibold;
+  @include font-size(2.5);
+  color: $darkgrey;
+}
+
+h2 {
+  font-family: $open-sans-semibold;
+  @include font-size(1.5);
+  color: $darkgrey;
+  margin-bottom: 24px;
+}
+
+h3 {
+  font-family: $open-sans-semibold;
+  @include font-size(1);
+  line-height: 1.2em;
+  margin: 4px 0;
+  color: $darkgrey;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid $grey-iron;
+  margin: 60px auto;
+  width: 80%;
+}
+
+h4 {
+  @include font-size(0.8125);
+  font-weight: normal;
+  font-family: $open-sans-semibold;
+}
+
+strong, b {
+  font-weight: normal;
+  font-family: $open-sans-semibold;
+}
+
+em, i {
+  font-weight: normal;
+  font-family: $open-sans-italic;
+}
+
+p {
+  line-height: 1.4em;
+  margin: 14px 0;
+  color: $grey;
+}
+
+ol {
+  list-style-type: decimal;
+  list-style-position: inside;
+}
+
+li {
+  color: $grey;
+  line-height: 1.4em;
+}
+
+a, a:visited {
+  color: $blue;
+  text-decoration: none;
+  @include transition(all 0.15s linear);
+  cursor: pointer;
+  outline: 0;
+  &:hover { color: $blue-malibu; }
+}
+
+button {
+  cursor: pointer;
+}
+
+.author.teacher { color: $blue; }
+
+.bullet-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  li { margin: 6px 0; }
+}
+
+/* Indicates an amount */
+.number {
+  @include font-size(0.875);
+  border-radius: 10px;
+  border-width: 1px;
+  border-style: solid;
+  line-height: 20px;
+  padding: 0 5px;
+  vertical-align: middle;
+  margin-left: 14px;
+}
+.number-grey {
+  @extend .number;
+  border-color: $fontlightgrey;
+  color: $fontlightgrey;
+}
+
+/**** MIXINS ****/
+/* Includes the Hstry SVG logo as a background */
+@mixin page-one-logo($logo-width: 40px) {
+  @include background-image-svg('logo-page-one');
+  background-size: contain;
+  @include hide-text;
+  @include size($logo-width ($logo-width / 2.2));
+}

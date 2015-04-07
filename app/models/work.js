@@ -7,8 +7,8 @@ export default DS.Model.extend({
   circa: DS.attr('boolean'),
   createdAt: DS.attr('date'),
   updatedAt: DS.attr('date'),
-  creators: DS.attr('array'),
-  // modes: DS.hasMany('modes'),
-  // references: DS.hasMany('references')
-  
+
+  creators: DS.hasMany('creators'),
+  modes: DS.hasMany('modes'),
+  references: DS.hasMany('references')
 });
