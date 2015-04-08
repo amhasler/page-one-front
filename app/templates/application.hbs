@@ -1,4 +1,21 @@
+{{#if menuToggle}}
+	{{render "menuBar"}}
+{{/if}}
 
-<h2 style="background-color:rgba(); position:fixed; top:0; left:0; width:100%" id="title">Welcome to Ember.js</h2>
+{{! Modals }}
+{{! outlet "modal"}}
 
-{{outlet}}
+{{! Popup notification}}
+{{! render "notification"}}
+
+<section {{bind-attr class=":main-container session.isLoggedIn"}}>
+  {{#if isLoadingPage}}
+  {{! Loading animation}}
+  <div class="loader-overlay">
+    <div class="loader">
+
+    </div>
+  </div>
+  {{/if}}
+  {{outlet}}
+</section>

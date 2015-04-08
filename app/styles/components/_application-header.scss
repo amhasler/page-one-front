@@ -1,0 +1,95 @@
+$logo-height: 30px;
+$beta-bar-height: 42px;
+$top-bar-padding: 10px;
+$top-bar-height: 2*$top-bar-padding + $logo-height;
+$menu-bar-height: 40px;
+$application-header-height: $top-bar-height + $menu-bar-height;
+
+.application-header {
+  @include position(fixed, 0px 0 0 0px);
+	z-index: 6;
+	width: 100%;
+  background: $white;
+	
+  .container {
+    position: relative;
+    padding: 0 20px;
+  }
+
+  /* Displays a bar saying that the product is in beta. */
+  .beta-bar {
+    text-align: center;
+    background-color: $blue-deepskyblue;
+    width: 100%;
+    color: $white;
+    padding: 10px 20px;
+    margin: 0;
+    a {
+      font-family: $open-sans-semibold;
+      color: inherit;
+    }
+  }
+	
+  .top-bar {
+    .container {
+      padding-top: $top-bar-padding;
+      padding-bottom: $top-bar-padding;		
+    }
+
+    .logo {
+      $logo-width: hstry-logo-aspect-ratio() * $logo-height;
+
+      display: block;
+      float: left;
+      @include size($logo-width $logo-height);
+      img { @include size(100%); }
+    }
+
+    .current-user-name {
+      line-height: $logo-height + 2px;
+      font-family: $open-sans-semibold;
+      color: $darkgrey;
+      @include font-size(13px / $font-size);
+      margin-left: 22px;
+    }
+
+    .button-logout {
+      @extend %rounded-button;
+      @include font-size(0.8125);
+      float: right;
+      display: block;
+      line-height: 2em;
+      margin: 2px 0;
+    }
+  }
+
+  .menu-bar {
+    background-color: $grey-whitesmoke;
+
+    .menu {
+      .link {
+        color: $fontlightgrey; 
+        @include font-size(14px / $font-size);
+        line-height: $menu-bar-height;
+        margin: 0 20px;
+        @include inline-block;
+        cursor: pointer;
+
+        &:first-of-type { margin-left: 0; }
+        &.is-active {
+          color: $darkgrey;
+          position: relative;
+          &:after {
+            $arrow-width: 11px;
+            $arrow-height: 6px;
+            @include arrow($arrow-width, $arrow-height, down, $grey-whitesmoke);
+            @include position(absolute, 100% 0 0 50%);
+            margin-left: - $arrow-width / 2;
+            content: '';
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}

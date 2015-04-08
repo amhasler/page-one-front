@@ -1,10 +1,10 @@
-/*!
- * Project:   Page One
- * Date:      2015/04/7
-/* ---------------------------------------- */
+body {
+	background-color: red;
+}
 
 /* Third party */
 @import "bourbon";
+@import "grid_settings";
 @import "neat";
 @import "reset";
 @import "font-awesome";
@@ -17,8 +17,15 @@
 @import "animations";
 @import "fonts";
 @import "breakpoints";
+@import "variables";
 
 /* Widgets */
+@import "widgets/button";
+
+/* Generic */
+@import "generic";
+@import "form";
+@import "tables";
 
 /* Generic */
 @import "generic";
@@ -26,6 +33,7 @@
 @import "tables";
 
 /* Components */
+@import "components/application-header";
 
 /* Pages */
 

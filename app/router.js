@@ -11,7 +11,7 @@ export default Router.map(function() {
   });
   this.resource('collections', function() {
   	this.resource('collection', { path: '/:collection_id'});
-  })
+  });
   this.route('login');
   // this.route("secret", {path: '/'});
 });
