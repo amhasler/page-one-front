@@ -116,13 +116,7 @@ label {
 /* Textarea */
 .textarea-container {
   position: relative;
-  @include spinner;
   
-  .spinner {
-    $distance-from-edge: 5px;
-    @include position(absolute, auto $distance-from-edge $distance-from-edge auto);
-  }
-  &.waiting { .spinner { display: block; } }
 }
 
 /* Checkbox */

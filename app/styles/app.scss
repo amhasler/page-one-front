@@ -7,7 +7,6 @@ body {
 @import "grid_settings";
 @import "neat";
 @import "reset";
-@import "font-awesome";
 
 /* Library */
 @import "functions";
@@ -33,7 +32,8 @@ body {
 @import "tables";
 
 /* Components */
-@import "components/application-header";
+@import "components/headers";
+@import "components/footers";
 
 /* Pages */
 

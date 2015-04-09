@@ -1,3 +1,10 @@
-{{render "topBar"}}
+{{render "collectionHeader"}}
 
-{{render "bottomBar" model}}
+<ul>
+{{#each work in model.works}}
+	<li>{{#link-to "work" work}}{{work.title}}{{/link-to}}</li>
+{{/each}}
+</ul>
+
+
+{{render "collectionFooter" model}}

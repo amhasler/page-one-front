@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600,400);
+
 
 /* Variables */
 $font-size: 16px;
@@ -6,13 +6,6 @@ $open-sans-regular: 'Open Sans Regular', Helvetica Neue, Helvetica, Arial, sans-
 $open-sans-semibold: 'Open Sans Semibold', Helvetica Neue, Helvetica, Arial, sans-serif;
 $open-sans-italic: 'Open Sans Italic', Helvetica Neue, Helvetica, Arial, sans-serif;
 $open-sans-lightitalic: 'Open Sans Light Italic', Helvetica Neue, Helvetica, Arial, sans-serif;
-
-/* Mixins */
-@mixin antonio {
-  font-family: $antonio;
-  font-weight: normal;
-  text-transform: uppercase;
-}
 
 @mixin icon($width, $height) {
   background-size: contain;

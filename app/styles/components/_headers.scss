@@ -1,0 +1,84 @@
+$logo-height: 30px;
+$top-bar-padding: 10px;
+$top-bar-height: 2*$top-bar-padding + $logo-height;
+$menu-bar-height: 40px;
+$application-header-height: $top-bar-height + $menu-bar-height;
+
+.collection-header, .application-header {
+  //@include position(fixed, 0px 0 0 0px);
+	z-index: 6;
+	width: 100%;
+  background: $white;
+}
+	
+.application-header {
+
+  background-color: $red-pippin;
+  .container {
+    padding-top: $top-bar-padding;
+    padding-bottom: $top-bar-padding;
+  }
+
+  .logo {
+    $logo-width: hstry-logo-aspect-ratio() * $logo-height;
+
+    display: block;
+    float: left;
+    @include size($logo-width $logo-height);
+    img { @include size(100%); }
+  }
+
+  .current-user-name {
+    line-height: $logo-height + 2px;
+    font-family: $open-sans-semibold;
+    color: $darkgrey;
+    @include font-size(13px / $font-size);
+    margin-left: 22px;
+  }
+
+  .menu {
+    display:inline-block;
+    .link {
+      color: $fontlightgrey; 
+      @include font-size(14px / $font-size);
+      line-height: $menu-bar-height;
+      margin: 0 20px;
+      @include inline-block;
+      cursor: pointer;
+
+      &:first-of-type { margin-left: 0; }
+      
+    }
+  }
+
+  button {
+    @extend %rounded-button;
+    @include font-size(0.8125);
+    float: right;
+    display: block;
+    line-height: 2em;
+    margin: 2px 0;
+  }
+}
+
+.collection-header {
+  .container {
+    padding-top: $top-bar-padding;
+    padding-bottom: $top-bar-padding;
+  }
+
+  background-color: transparent;
+
+  .logo {
+    $logo-width: hstry-logo-aspect-ratio() * $logo-height;
+
+    display: block;
+    float: left;
+    @include size($logo-width $logo-height);
+    img { @include size(100%); }
+  }
+  
+  .toggle-button-group {
+    float:right;
+  }
+}

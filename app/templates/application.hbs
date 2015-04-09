@@ -1,6 +1,5 @@
-{{#if menuToggle}}
-	{{render "menuBar"}}
-{{/if}}
+{{render "applicationHeader"}}
+
 
 {{! Modals }}
 {{! outlet "modal"}}
@@ -17,5 +16,5 @@
     </div>
   </div>
   {{/if}}
-  {{outlet}}
+  {{liquid-outlet}}
 </section>

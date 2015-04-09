@@ -8,6 +8,8 @@ export default DS.Model.extend({
   createdAt: DS.attr('date'),
   updatedAt: DS.attr('date'),
 
+  collection: DS.belongsTo('collection'),
+
   creators: DS.hasMany('creators'),
   modes: DS.hasMany('modes'),
   references: DS.hasMany('references')

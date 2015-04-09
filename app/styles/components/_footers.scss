@@ -1,0 +1,19 @@
+$top-bar-padding: 10px;
+
+.collection-footer {
+	z-index: 6;
+	width: 100%;
+	position:fixed;
+	bottom:0px;
+	.container {
+    padding-top: $top-bar-padding;
+    padding-bottom: $top-bar-padding;
+  }
+  section {
+  	display: inline-block;
+  	&:last-child {
+  		float:right;
+  	}
+  }
+
+}
