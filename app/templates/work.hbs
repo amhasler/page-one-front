@@ -5,6 +5,11 @@ Date
 Place
 {{place}}
 
-{{#each creator in creators}}
+{{#each creator in model.creators}}
 	{{creator.name}}
 {{/each}}
+
+{{#liquid-with model as currentModel use="rotateBelow" class="demo-container"}}
+  {{currentModel.id}}
+  <button {{action "higher" currentModel}}>Go</button>
+{{/liquid-with}}
