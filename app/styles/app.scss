@@ -34,8 +34,12 @@ body {
 /* Components */
 @import "components/headers";
 @import "components/footers";
+@import "components/map";
+@import "components/timeline";
 
 /* Pages */
+@import "pages/index";
+@import "pages/work";
 
 /* After everything */
 @import "preload-images";

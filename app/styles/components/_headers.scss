@@ -19,6 +19,9 @@ $application-header-height: $top-bar-height + $menu-bar-height;
     padding-bottom: $top-bar-padding;
   }
 
+  position:fixed;
+  display:none;
+
   .logo {
     $logo-width: hstry-logo-aspect-ratio() * $logo-height;
 
@@ -67,6 +70,7 @@ $application-header-height: $top-bar-height + $menu-bar-height;
     padding-bottom: $top-bar-padding;
   }
 
+  position:fixed;
   background-color: transparent;
 
   .logo {

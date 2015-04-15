@@ -1,8 +1,8 @@
 <div class="container">
   {{#link-to "index" class="logo"}}<img src="/assets/images/logo-page-one.svg" alt="Logo of Page One" />{{/link-to}}
   <div class="toggle-button-group">
-  	<button>Map</button>
-  	<button>Timeline</button>
+  	<button {{action "toggleTimeline"}}>Map</button>
+  	<button {{action "toggleMap"}}>Timeline</button>
   </div>
 </div>
 

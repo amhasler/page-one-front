@@ -1,0 +1,10 @@
+.index-page {
+	height:100%;
+	& > .map, & > .timeline {
+		height:100%;
+	}
+
+	.timeline {
+		display:none;
+	}
+}

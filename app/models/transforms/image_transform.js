@@ -1,4 +1,5 @@
 /* Add an 'image' type for models */
+/*
 export default DS.Transform.extend({
   serialize: function(value) {
     if (value) {
@@ -23,3 +24,4 @@ export default DS.Transform.extend({
     }
   }
 });
+*/

@@ -1,15 +1,14 @@
-{{title}}
+{{#link-to "index"}}Test{{/link-to}}
 
-Date
-{{date}}
-Place
-{{place}}
+<h1>{{model.title}}</h1>
 
+<h3>Date</h3>
+<p>{{model.date}}</p>
+<h3>Place</h3>
+<p>{{model.place}}</p>
+
+<ul>
 {{#each creator in model.creators}}
-	{{creator.name}}
+	<li>{{creator.name}}</li>
 {{/each}}
-
-{{#liquid-with model as currentModel use="rotateBelow" class="demo-container"}}
-  {{currentModel.id}}
-  <button {{action "higher" currentModel}}>Go</button>
-{{/liquid-with}}
+</ul>

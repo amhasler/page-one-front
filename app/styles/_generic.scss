@@ -1,12 +1,27 @@
 html, body {
   /* Needed to full-width the conclusion for a timeline */
   overflow-x: hidden;
+  height:100%;
 }
 
 body {
   background-color: $white;
   font-family: $open-sans-regular;
   font-size: $font-size;
+}
+
+body > div {
+  height:100%;
+}
+
+.main-container {
+  height:100%;
+  & > .liquid-container {
+    height:100%;
+    .liquid-child {
+      height:100%;
+    }
+  }
 }
 
 h1 {

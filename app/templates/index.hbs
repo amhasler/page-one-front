@@ -1,10 +1,7 @@
 {{render "collectionHeader"}}
 
-<ul>
-{{#each work in model.works}}
-	<li>{{#link-to "work" work}}{{work.title}}{{/link-to}}</li>
-{{/each}}
-</ul>
+{{page-one-map}}
 
+{{page-one-timeline works=model.works}}
 
 {{render "collectionFooter" model}}

@@ -17,7 +17,14 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     }
-  };
+  }
+
+  ENV.contentSecurityPolicy = {
+    'default-src': "'none'",
+    'font-src': "'self' http://fonts.gstatic.com", // Allow fonts to be loaded from http://fonts.gstatic.com
+    'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com", // Allow inline styles and loaded CSS from http://fonts.googleapis.com 
+    'script-src': "'self' http://maps.gstatic.com maps.google.com",
+  }
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;

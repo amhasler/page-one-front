@@ -1,4 +1,7 @@
-
+@include font-face('Open Sans Regular', 'OpenSans-Regular', normal, normal);
+@include font-face('Open Sans Semibold', 'OpenSans-Semibold', bold, normal);
+@include font-face('Open Sans Italic', 'OpenSans-Italic', normal, italic);
+@include font-face('Open Sans Light Italic', 'OpenSans-LightItalic', lighter, italic);
 
 /* Variables */
 $font-size: 16px;
