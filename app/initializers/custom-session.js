@@ -6,16 +6,12 @@ export default {
   before: "simple-auth",
   initialize: function(container) {
     Session.reopen({
-      setCurrentUser: function() {
-        var id = this.get("email");
-        var self = this;
-
-        if (!Ember.isEmpty(id)) {
-          return container.lookup("store:main").find("user", id).then(function(user) {
-            self.set("currentUser", user);
-          });
+      currentUser: function() {
+        var email = this.get('secure.email');
+        if (!Ember.isEmpty(email)) {
+          return container.lookup('store:main').find('user', email);
         }
-      }.observes("email")
+      }.property("secure.email")
     });
   }
 };
