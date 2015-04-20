@@ -1,13 +1,14 @@
 {{render "applicationHeader"}}
 
-
 {{! Modals }}
 {{! outlet "modal"}}
 
 {{! Popup notification}}
 {{! render "notification"}}
 
-<section {{bind-attr class=":main-container session.isLoggedIn"}}>
+<div {{bind-attr class=":header-overlay showHeader:show"}} {{action "toggleHeader"}}></div>
+
+<section {{bind-attr class=":main-container session.isAuthenticated"}}>
   {{#if isLoadingPage}}
   {{! Loading animation}}
   <div class="loader-overlay">

@@ -13,18 +13,28 @@ $application-header-height: $top-bar-height + $menu-bar-height;
 	
 .application-header {
 
-  background-color: $red-pippin;
+  background-color: $red;
   .container {
     padding-top: $top-bar-padding;
     padding-bottom: $top-bar-padding;
   }
 
   position:fixed;
-  display:none;
+  max-height: 0px;
+  @include transition(max-height .5s ease-out);
+  overflow:auto;
+
+  &.show{
+    max-height: 2000px;
+    @include transition(max-height 1s ease-in);
+  }
+
+  .header-toggle {
+    cursor:pointer;
+  }
 
   .logo {
     $logo-width: hstry-logo-aspect-ratio() * $logo-height;
-
     display: block;
     float: left;
     @include size($logo-width $logo-height);
@@ -72,7 +82,9 @@ $application-header-height: $top-bar-height + $menu-bar-height;
 
   position:fixed;
   background-color: transparent;
-
+  .header-toggle {
+    cursor: pointer;
+  }
   .logo {
     $logo-width: hstry-logo-aspect-ratio() * $logo-height;
 
@@ -84,5 +96,24 @@ $application-header-height: $top-bar-height + $menu-bar-height;
   
   .toggle-button-group {
     float:right;
+  }
+}
+
+.header-overlay {
+  background-color:#ff6666;
+  position:fixed;
+  height:100%;
+  width:100%;
+  z-index:1;
+  visibility:hidden;
+  opacity:0;
+  transition:visibility 0s linear 0.5s,opacity 0.5s linear;
+  //max-height: 0px;
+  //@include transition(max-height .5s fade-out);
+  //overflow:auto;
+  &.show {
+    visibility:visible;
+    opacity:.4;
+    transition-delay:0s;
   }
 }

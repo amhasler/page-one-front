@@ -1,10 +1,14 @@
 <div class="container">
-  {{#link-to "index" class="logo"}}<img src="/assets/images/logo-page-one.svg" alt= "Inverse of Logo of Page One" />{{/link-to}}
+  <div class="header-toggle" {{action "toggleHeader"}}><img class="logo" src="/assets/images/logo-page-one.svg" alt= "Inverse of Logo of Page One" /></div>
   <nav class="menu">
   	<ul>
   		<li class="link">About</li>
   		<li class="link">Blog</li>
   	</ul>
   </nav>
-  <button>Log in</button>
+  {{#if session.isAuthenticated}}
+	  <button {{ action 'invalidateSession' }}>Logout</button>
+	{{else}}
+	  {{#link-to 'login'}}<button {{action "toggleHeader"}}>Log in</button>{{/link-to}}
+	{{/if}}
 </div>
