@@ -4,5 +4,5 @@ export default DS.Model.extend({
   title: DS.attr('string'),
 
   works: DS.hasMany('work'),
-  user: DS.belongsTo('user')
+  user: DS.belongsTo('user', {async:true})
 });

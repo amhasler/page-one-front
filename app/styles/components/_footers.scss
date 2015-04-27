@@ -13,6 +13,12 @@ $top-bar-padding: 10px;
   	display: inline-block;
   	&:last-child {
   		float:right;
+      button, h2 {
+        display:inline-block;
+      }
+      h2 {
+        margin-right:20px;
+      }
   	}
   }
 

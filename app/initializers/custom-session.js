@@ -7,11 +7,11 @@ export default {
   initialize: function(container) {
     Session.reopen({
       currentUser: function() {
-        var email = this.get('secure.email');
-        if (!Ember.isEmpty(email)) {
-          return container.lookup('store:main').find('user', email);
+        var accountId = this.get('secure.account_id');
+        if (!Ember.isEmpty(accountId)) {
+          return container.lookup('store:main').find('user', accountId);
         }
-      }.property("secure.email")
+      }.property('secure.account_id')
     });
   }
 };

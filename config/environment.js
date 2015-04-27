@@ -21,9 +21,11 @@ module.exports = function(environment) {
 
   ENV.contentSecurityPolicy = {
     'default-src': "'none'",
+    'connect-src': "'self' 'localhost' http://localhost:3000",
     'font-src': "'self' http://fonts.gstatic.com", // Allow fonts to be loaded from http://fonts.gstatic.com
     'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com", // Allow inline styles and loaded CSS from http://fonts.googleapis.com 
-    'script-src': "'self' http://maps.gstatic.com maps.google.com",
+    'script-src': "'self' 'unsafe-inline' 'unsafe-eval' maps.googleapis.com maps.google.com maps.gstatic.com",
+    'img-src': "'self' maps.gstatic.com mt1.googleapis.com http://mt0.googleapis.com maps.googleapis.com csi.gstatic.com",
   }
 
   if (environment === 'development') {
