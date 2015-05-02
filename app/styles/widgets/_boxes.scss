@@ -1,0 +1,206 @@
+/* Boxes */
+.white-box {
+  background-color: $white;
+  border: 1px solid $lightgrey;
+  border-radius: 3px;
+}
+
+/* White arrow boxes */
+$speech-bubble-width: 10px;
+$speech-bubble-height: 20px;
+$speech-bubble-distance: 45px;
+.arrow-box {
+  @extend .white-box;
+  position: relative;
+  border: 1px solid $bluegrey;
+}
+
+@mixin bordered-arrow($position, $border-color: $bluegrey, $background-color: $white) {
+  @include size($speech-bubble-width $speech-bubble-height);
+  display: block;
+  @include position(absolute, 0px 0 0 0px);
+
+  .arrow {
+    position: relative;
+    display: block;
+    &:after, &:before {
+      border: solid transparent;
+      content: " ";
+      @include size(0px 0px);
+      pointer-events: none;
+      display: block;
+      position: absolute;
+    }
+    &:after {
+      border-color: rgba($background-color, 0);
+      border-width: $speech-bubble-width - 1px;
+    }
+    &:before {
+      border-color: rgba($border-color, 0);
+      border-width: $speech-bubble-width;
+    }
+  }
+
+  @if $position == right {
+    left: auto;
+    right: 100%;
+    top: $speech-bubble-distance;
+    .arrow {
+      &:before, &:after {
+        right: 0;
+        left: auto;
+        top: 0;
+      }
+      &:before {
+        border-right-color: $border-color;
+        margin-top: -$speech-bubble-height;
+      }
+      &:after {
+        border-right-color: $background-color;
+        margin-top: -($speech-bubble-height - 1px);
+      }
+    }
+  } @else if $position == left {
+    left: 100%;
+    top: $speech-bubble-distance;
+    .arrow {
+      &:before, &:after {
+        left: 0;
+        top: 0;
+      }
+      &:before {
+        border-left-color: $border-color;
+        margin-top: -$speech-bubble-height;
+      }
+      &:after {
+        border-left-color: $background-color;
+        margin-top: -($speech-bubble-height - 1px);
+      }
+    }
+  } @else if $position == top {
+    left: $speech-bubble-distance;
+    bottom: 100%;
+    .arrow {
+      &:before, &:after {
+        left: 0;
+        bottom: 0;
+      }
+      &:before {
+        border-bottom-color: $border-color;
+      }
+      &:after {
+        border-bottom-color: $background-color;
+        margin-left: 1px;
+      }
+    }
+  } @else if $position == bottom {
+    left: $speech-bubble-distance;
+    top: 100%;
+    .arrow {
+      &:before, &:after {
+        right: 0;
+        top: 0;
+      }
+      &:before {
+        border-top-color: $border-color;
+        margin-right: -$speech-bubble-height;
+      }
+      &:after {
+        border-top-color: $background-color;
+        margin-right: -($speech-bubble-height - 1px);
+      }
+    }
+  }
+}
+
+.arrow-box-left {
+  @extend .arrow-box;
+  > .arrow-wrapper {
+    @include bordered-arrow(left);
+    // @include size($speech-bubble-width $speech-bubble-height);
+    // left: auto;
+    // right: 100%;
+    // top: $speech-bubble-distance;
+    // .arrow {
+      //   &:before, &:after {
+        //     right: 0;
+        //     left: auto;
+        //     top: 0;
+      //   }
+      //   &:before {
+        //     border-right-color: $bluegrey;
+        //     margin-top: -$speech-bubble-height;
+      //   }
+      //   &:after {
+        //     border-right-color: $white;
+        //     margin-top: -($speech-bubble-height - 1px);
+      //   }
+    // }
+  }
+}
+
+.arrow-box-right {
+  @extend .arrow-box;
+  > .arrow-wrapper {
+    @include bordered-arrow(right);
+    // @include size($speech-bubble-width $speech-bubble-height);
+    // left: 100%;
+    // top: $speech-bubble-distance;
+    // .arrow {
+      //   &:before, &:after {
+        //     left: 0;
+        //     top: 0;
+      //   }
+      //   &:before {
+        //     border-left-color: $bluegrey;
+        //     margin-top: -$speech-bubble-height;
+      //   }
+      //   &:after {
+        //     border-left-color: $white;
+        //     margin-top: -($speech-bubble-height - 1px);
+      //   }
+    // }
+  }
+}
+
+.arrow-box-top {
+  @extend .arrow-box;
+  > .arrow-wrapper {
+    @include bordered-arrow(top);
+    // @include size($speech-bubble-height $speech-bubble-width);
+    // left: $speech-bubble-distance;
+    // bottom: 100%;
+    // .arrow {
+      //   &:before, &:after {
+        //     left: 0;
+        //     bottom: 0;
+      //   }
+      //   &:before { border-bottom-color: $bluegrey; }
+      //   &:after { border-bottom-color: $white; }
+    // }
+  }
+}
+
+.arrow-box-bottom {
+  @extend .arrow-box;
+  > .arrow-wrapper {
+    @include bordered-arrow(bottom);
+    // @include size($speech-bubble-height $speech-bubble-width);
+    // left: $speech-bubble-distance;
+    // top: 100%;
+    // .arrow {
+      //   &:before, &:after {
+        //     right: 0;
+        //     top: 0;
+      //   }
+      //   &:before {
+        //     border-top-color: $bluegrey;
+        //     margin-right: -$speech-bubble-height;
+      //   }
+      //   &:after {
+        //     border-top-color: $white;
+        //     margin-right: -($speech-bubble-height - 1px);
+      //   }
+    // }
+  }
+}

@@ -1,0 +1,8 @@
+<button {{bind-attr class="buttonClass :button" title=title}} {{action "showConfirmation"}}>{{yield}}</button>
+{{#if showConfirmationPopover}}
+  {{#pop-over position=position}}
+    <p class="question">{{question}}</p>
+    <button class="confirm" {{action "confirm"}}>{{confirmText}}</button>
+    <button class="cancel" {{action "cancel"}}>{{cancelText}}</button>
+  {{/pop-over}}
+{{/if}}

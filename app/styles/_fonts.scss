@@ -1,14 +1,14 @@
-@include font-face('Open Sans Regular', 'OpenSans-Regular', normal, normal);
-@include font-face('Open Sans Semibold', 'OpenSans-Semibold', bold, normal);
-@include font-face('Open Sans Italic', 'OpenSans-Italic', normal, italic);
-@include font-face('Open Sans Light Italic', 'OpenSans-LightItalic', lighter, italic);
+@include font-face('Lato Regular', 'Lato-Regular', normal, normal);
+@include font-face('Lato Bold', 'Lato-Bold', bold, normal);
+@include font-face('Lato Italic', 'Lato-Italic', normal, italic);
+@include font-face('Lato Light Italic', 'Lato-LightItalic', lighter, italic);
 
 /* Variables */
 $font-size: 16px;
-$open-sans-regular: 'Open Sans Regular', Helvetica Neue, Helvetica, Arial, sans-serif;
-$open-sans-semibold: 'Open Sans Semibold', Helvetica Neue, Helvetica, Arial, sans-serif;
-$open-sans-italic: 'Open Sans Italic', Helvetica Neue, Helvetica, Arial, sans-serif;
-$open-sans-lightitalic: 'Open Sans Light Italic', Helvetica Neue, Helvetica, Arial, sans-serif;
+$open-sans-regular: 'Lato Regular', Helvetica Neue, Helvetica, Arial, sans-serif;
+$open-sans-semibold: 'Lato Bold', Helvetica Neue, Helvetica, Arial, sans-serif;
+$open-sans-italic: 'Lato Italic', Helvetica Neue, Helvetica, Arial, sans-serif;
+$open-sans-lightitalic: 'Lato Light Italic', Helvetica Neue, Helvetica, Arial, sans-serif;
 
 @mixin icon($width, $height) {
   background-size: contain;

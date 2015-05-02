@@ -1,6 +1,11 @@
 <div class="container">
-
-	<section class="collection-title"><h2>{{model.title}} by {{model.user.name}}</h2></section>
-	<section class="works-displayed"><h2>Collection includes <span class="work-total">{{model.works.length}}</span> works</h2><button class="button">Add a work</button></section>
-
+	<section class="collection-title">
+		<h2>{{model.title}} by {{model.user.name}}</h2>
+	</section>
+	<section class="works-displayed">
+		<h2>Collection includes <span class="work-total">{{model.works.length}}</span> works</h2>
+		{{! #if isAuthor}}
+			<button class="button">Add a work</button>
+		{{! /if}}
+		</section>
 </div>

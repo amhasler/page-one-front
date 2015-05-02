@@ -1,15 +1,30 @@
-{{#link-to "index"}}Test{{/link-to}}
-{{session.currentUser.name}}
+<div class="container">
+	{{#link-to "index" class="nav"}}exit{{/link-to}}
+	<div class="content">
+		<div class="image-container">
+			{{! feature image }}
+		</div>
+		<div class="button-container">
+			{{! #if isAuthor}}
+				{{#if isEditing}}
+					<div class="two-button">
+						{{#confirmable-action-button name="delete-work" action="deleteWork" question="Are you sure you want to delete this work?" position="top"}}Delete the work{{/confirmable-action-button}}
+						<button {{bind-attr class=":button canFinish"}} {{action "toggleEdit"}}>Finish Editing</button>
+					</div>
+				{{else}}
+					<button class="button" {{action "toggleEdit"}}>Edit Work</button>
+				{{/if}}
+			{{! /if}}
+		</div>
+		<div class="main-container">
+			{{#if isEditing}}
+				{{inplace-editor model=model text=model.title placeholder="Title" errors=errors.content doFocus=isCreated}}
+				{{inplace-editor model=model text=model.date placeholder="Date" errors=errors.content doFocus=isCreated}}~{{inplace-editor model=model text=model.place placeholder="Location" errors=errors.content doFocus=isCreated}}
+			{{else}}
+				<h1>{{model.title}}</h1>
+				<h2>{{add-bce model.date}}~<span>{{model.place}}</span></h2>
+			{{/if}}
+		</div>
+	</div>
 
-<h1>{{model.title}}</h1>
-
-<h3>Date</h3>
-<p>{{model.date}}</p>
-<h3>Place</h3>
-<p>{{model.place}}</p>
-
-<ul>
-{{#each creator in model.creators}}
-	<li>{{creator.name}}</li>
-{{/each}}
-</ul>
+</div>

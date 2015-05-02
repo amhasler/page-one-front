@@ -1,0 +1,92 @@
+$speech-bubble-width: 10px;
+$speech-bubble-height: 20px;
+$speech-bubble-distance: 45px;
+
+@mixin popover {
+  position: absolute;
+  border-width: 3px;
+  border-radius: 6px;
+  > .arrow-wrapper .arrow:after { border-width: $speech-bubble-width - 4px; }
+}
+
+
+$popover-min-width: 240px;
+
+.popover {
+  width: auto;
+  z-index: 1;
+  min-width: $popover-min-width;
+  padding: 10px;
+  @include box-sizing(border-box);
+  font-family: $open-sans-regular;
+  text-transform: none;
+  
+  &.bottom {
+    @extend .arrow-box-top;
+    @include popover;
+    top: 100%;
+    left: -50%;
+    margin-top: $speech-bubble-width;
+
+    > .arrow-wrapper { left: $speech-bubble-height + 10px; }
+    > .arrow-wrapper .arrow:after { margin-left: 4px; }
+  }
+  
+
+  &.top {
+    @extend .arrow-box-bottom;
+    @include popover;
+    bottom: 100%;
+    left: -50%;
+    margin-bottom: $speech-bubble-width;
+
+    > .arrow-wrapper { left: $speech-bubble-height + 10px; }
+    > .arrow-wrapper .arrow:after { margin-right: -($speech-bubble-height - 4px); }
+  }
+  
+  &.left {
+    @extend .arrow-box-right;
+    @include popover;
+    right: 100%;
+    top: -13px;
+    margin-right: $speech-bubble-width;
+
+    > .arrow-wrapper { top: $speech-bubble-height + 10px; }
+    > .arrow-wrapper .arrow:after { margin-top: -($speech-bubble-height - 4px); }
+  }
+
+  &.right {
+    @extend .arrow-box-left;
+    @include popover;
+    left: 100%;
+    top: -13px;
+    margin-left: $speech-bubble-width;
+
+    > .arrow-wrapper { top: $speech-bubble-height + 10px; }
+    > .arrow-wrapper .arrow:after { margin-top: -($speech-bubble-height - 4px); }
+  }
+
+  .question {
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: left;
+    @include font-size(0.9);
+    color: $grey;
+  }
+
+  .confirm, .cancel {
+    line-height: 1em;
+    display: block;
+  }
+
+  .confirm {
+    @extend .button-blue;
+    margin-right: 8px;
+    float: left;
+  }
+
+  .cancel {
+    @extend .button-grey;
+    float: right;
+  }
+}
