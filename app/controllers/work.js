@@ -1,10 +1,14 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-	isAuthor: function() {
+	  /* Query params */
+  queryParams: ['edit'],
+  edit: false,
+  /* Properties */
+  isEditing: Ember.computed.alias('edit'),
+  isAuthor: function() {
 		return this.get('model.collection.user') == this.get('session.currentUser');
 	},
-	isEditing: false,
 	actions: {
 		toggleEdit: function() {
 			if (this.get('isEditing')) {

@@ -20,10 +20,33 @@
 			{{#if isEditing}}
 				{{inplace-editor model=model text=model.title placeholder="Title" errors=errors.content doFocus=isCreated}}
 				{{inplace-editor model=model text=model.date placeholder="Date" errors=errors.content doFocus=isCreated}}~{{inplace-editor model=model text=model.place placeholder="Location" errors=errors.content doFocus=isCreated}}
+				{{image-uploader image=image authParams=session.authParams model=model attribute="image" uploaded="imageUploaded" errors=errors.image doFocus=isCreated}}
 			{{else}}
 				<h1>{{model.title}}</h1>
 				<h2>{{add-bce model.date}}~<span>{{model.place}}</span></h2>
 			{{/if}}
+		</div>
+		<hr />
+		<div class="media-container">
+			<h2>Media</h2>
+			{{#if isEditing}}
+				{{media-uploader authParams=session.authParams model=model doFocus=isCreated}}
+			{{/if}}
+
+			{{! Each with square clickable thumbnails. Individual Lightbox }}
+
+		</div>
+		<hr />
+		<div class="resource-container">
+			<h2>Other Resources</h2>
+			{{#if isEditing}}
+				{{! Form to add new resources}}
+			{{/if}}
+
+			{{! Each with table rows of resources, two columns }}
+
+
+
 		</div>
 	</div>
 

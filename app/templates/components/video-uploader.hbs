@@ -1,0 +1,13 @@
+{{view HstryEd.FieldView type="text" placeholder="Paste a link to a Youtube video" name="video-url" value=url}}
+
+{{#if showPreview}}
+  {{#if isValidEmbedCode}}
+    {{video-embed youtubeVideoId=youtubeVideoId}}
+  {{else}}
+    <div class="video-placeholder"></div>
+  {{/if}}
+{{/if}}
+
+{{#each error in errors}}
+  <span class="error message">{{error}}</span>
+{{/each}}

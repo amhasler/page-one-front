@@ -8,7 +8,7 @@
 
 <div {{bind-attr class=":header-overlay showHeader:show"}} {{action "toggleHeader"}}></div>
 
-<section {{bind-attr class=":main-container session.isAuthenticated"}}>
+<section {{bind-attr class=":main-container isFull:full session.isAuthenticated"}}>
   {{#if isLoadingPage}}
   {{! Loading animation}}
   <div class="loader-overlay">
