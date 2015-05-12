@@ -2,9 +2,9 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 	/* File uploader component. Needs:
- * - apiUrl: URL of the file upload REST endpoint.
- * - authParams: authentication parameters for the user
- */
+  * - apiUrl: URL of the file upload REST endpoint.
+  * - authParams: authentication parameters for the user
+  */
   classNames: ['file-uploader'],
   didInsertElement: function() {
     var self = this;

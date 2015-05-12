@@ -1,12 +1,8 @@
-{{view HstryEd.FieldView type="text" placeholder="Paste a link to a Youtube video" name="video-url" value=url}}
-
-{{#if showPreview}}
-  {{#if isValidEmbedCode}}
-    {{video-embed youtubeVideoId=youtubeVideoId}}
-  {{else}}
-    <div class="video-placeholder"></div>
-  {{/if}}
-{{/if}}
+<form class="form-upload-video" {{action "uploadVideo" on="submit"}}>
+  {{view 'field-view' type="text" placeholder="Paste a link to a Youtube video" name="video-url" value=url}}
+  {{view 'field-view' type="text" placeholder="Image caption" name="image-caption" value=caption}}
+  {{input type="submit" class="button-submit-url" value="Upload"}}
+</form>
 
 {{#each error in errors}}
   <span class="error message">{{error}}</span>

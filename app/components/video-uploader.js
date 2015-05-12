@@ -3,14 +3,14 @@ import Ember from 'ember';
 export default Ember.Component.extend({
 	//HstryEd.YoutubeVideoMixin,
 	/*
- * Uploader for a YouTube video. Needs:
- * - youtubeUrl: a complete Youtube url. Required.
- * - errors: errors to be displayed. Optional.
- * - model: model on which the embed code is saved (e.g. "event" or "item"). Required.
- * - attribute: name of the attribute on which the youtube embed code is saved. Required.
- * - showPreview: if false, does not show a preview. Optional.
- * - doFocus: if true, focuses on the URL textfield when initialized. Optional.
- */
+  * Uploader for a YouTube video. Needs:
+  * - youtubeUrl: a complete Youtube url. Required.
+  * - errors: errors to be displayed. Optional.
+  * - model: model on which the embed code is saved (e.g. "event" or "item"). Required.
+  * - attribute: name of the attribute on which the youtube embed code is saved. Required.
+  * - showPreview: if false, does not show a preview. Optional.
+  * - doFocus: if true, focuses on the URL textfield when initialized. Optional.
+  */
   classNames: ['video-uploader'],
   classNameBindings: ['errors:error'],
   /* Constants */

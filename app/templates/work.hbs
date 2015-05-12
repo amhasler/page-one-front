@@ -1,9 +1,11 @@
 <div class="container">
 	{{#link-to "index" class="nav"}}exit{{/link-to}}
 	<div class="content">
+		<!--
 		<div class="image-container">
 			{{! feature image }}
 		</div>
+		-->
 		<div class="button-container">
 			{{! #if isAuthor}}
 				{{#if isEditing}}
@@ -20,12 +22,12 @@
 			{{#if isEditing}}
 				{{inplace-editor model=model text=model.title placeholder="Title" errors=errors.content doFocus=isCreated}}
 				{{inplace-editor model=model text=model.date placeholder="Date" errors=errors.content doFocus=isCreated}}~{{inplace-editor model=model text=model.place placeholder="Location" errors=errors.content doFocus=isCreated}}
-				{{image-uploader image=image authParams=session.authParams model=model attribute="image" uploaded="imageUploaded" errors=errors.image doFocus=isCreated}}
 			{{else}}
 				<h1>{{model.title}}</h1>
 				<h2>{{add-bce model.date}}~<span>{{model.place}}</span></h2>
 			{{/if}}
 		</div>
+		<!--
 		<hr />
 		<div class="media-container">
 			<h2>Media</h2>
@@ -48,6 +50,7 @@
 
 
 		</div>
+		-->
 	</div>
 
 </div>

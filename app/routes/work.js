@@ -5,6 +5,6 @@ export default Ember.Route.extend({
 		return this.store.find('work', params.work_id); 
 	},
 	afterModel: function() {
-		this.controllerFor('application').set('isFull', false);
+		// this.controllerFor('application').set('isFull', false);
 	}
 });

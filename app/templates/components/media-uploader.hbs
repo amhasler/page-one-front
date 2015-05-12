@@ -1,11 +1,13 @@
-{{#if default}}
+{{#if firstStep}}
 	<button class="button" {{action "uploadVideo"}}>Upload Video</button>
 	<button class="button" {{action "uploadImage"}}>Upload Image</button>
 {{else}}
 	{{#if isImage}}
 		{{image-uploader authParams=session.authParams model=model doFocus=isCreated}}
-	{{else}}
+	{{/if}}
+	{{#if isVideo}}
 		{{video-uploader model=content attribute="youtubeVideoId" errors=errors.youtubeVideoId}}
 	{{/if}}
+	<p class="cancel-link" {{action "cancel"}}>Cancel</p>
 {{/if}}
 

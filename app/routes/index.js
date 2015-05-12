@@ -5,6 +5,6 @@ export default Ember.Route.extend({
 	 	return this.store.find('collection', 1); 
 	},
 	afterModel: function() {
-		this.controllerFor('application').set('isFull', true);
+		// this.controllerFor('application').set('isFull', true);
 	}
 });

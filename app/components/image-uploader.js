@@ -9,7 +9,7 @@ export default Ember.Component.extend({
   showLightbox: true,
   /* URL of the image upload API endpoint */
   apiUrl: function() {
-    return HstryEd.RequestPaths.image_upload_path();
+    // return HstryEd.RequestPaths.image_upload_path();
   }.property().readOnly(),
   /* Properties */
   imageUploaded: function() {
@@ -28,7 +28,7 @@ export default Ember.Component.extend({
     var model = this.get('model');
     var attribute = this.get('attribute');
 
-    model.set(attribute, HstryEd.Image.create(HstryEd.Utility.normalize(image)));
+    //model.set(attribute, HstryEd.Image.create(HstryEd.Utility.normalize(image)));
     model.save().then(function(image) {
       // // Finished loading.
       // self.set('loading', false);
@@ -43,16 +43,16 @@ export default Ember.Component.extend({
     });
   },
   _handleImageNotUploaded: function(errors) {
-    this.set('requestMessages', HstryEd.RequestMessagesObject.create({ type: "error", json: errors}));
+    //this.set('requestMessages', HstryEd.RequestMessagesObject.create({ type: "error", json: errors}));
     this.set('loading', false);
   },
   // Actions
   actions: {
-    uploadUrl: function() {
+    uploadImage: function() {
       var self = this;
 
       this._initUpload();
-
+            
       HstryEd.Utility.post(
         this.get('apiUrl'),
         {
@@ -64,11 +64,13 @@ export default Ember.Component.extend({
         self._handleImageNotUploaded(data.responseJSON);
       });
     },
+    /*
     deleteImage: function() {
       this.set('url', '');
       this.set('image', null);
       this.get('model').save();
     },
+    */
     /* Callbacks from file-uploader component */
     initFileUpload: function() {
       this._initUpload();

@@ -1,5 +1,21 @@
-{{#each work in model}}
- 	{{#link-to 'work' work}} {{work.title}} {{/link-to}}
-{{else}}
-	No works found.
-{{/each}}
+<div class="container">
+	<h1>Works</h1>
+	<table>
+		<tr>
+			<th>Title</th>
+			<th>Collection</th>
+			<th>Place</th>
+			<th>Date</th>
+			<th>Link</th>
+		</tr>
+		{{#each work in model}}		
+			<tr>
+				<td>{{work.title}}</td>
+				<td>{{work.collection.title}}</td>
+				<td>{{work.place}}</td>
+				<td>{{work.date}}</td>
+				<td>{{#link-to 'work' work}}Visit Work{{/link-to}}</td>
+			</tr>
+		{{/each}}
+	</table>
+</div>

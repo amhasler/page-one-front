@@ -84,15 +84,3 @@ $button-border-radius: 3px;
   @extend .button;
   @include button(green);
 }
-
-/* A grey circle with a '+' inside. */
-@mixin button-create-new {
-  @extend .school-class-circle;
-  color: $grey-iron;
-  border-color: $grey-whitesmoke;
-  cursor: pointer;
-  @include font-size(4);
-  margin: auto;
-  &:hover { border-color: darken($grey-whitesmoke, 10%); }
-  a { color: $grey-iron; }
-}

@@ -39,11 +39,14 @@ body {
 @import "components/footers";
 @import "components/map";
 @import "components/timeline";
+@import "components/media-uploader";
 
 /* Pages */
 @import "pages/index";
 @import "pages/work";
 @import "pages/login";
+@import "pages/collections";
+@import "pages/works";
 
 /* After everything */
 @import "preload-images";

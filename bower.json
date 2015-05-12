@@ -14,6 +14,7 @@
     "qunit": "~1.17.1",
     "bourbon": "4.2.1",
     "neat": "~1.7.1",
-    "ember-simple-auth": "0.8.0-beta.1"
+    "ember-simple-auth": "0.8.0-beta.1",
+    "ember-uploader": "~0.3.6"
   }
 }
