@@ -1,9 +1,12 @@
-{{render "collectionHeader"}}
+{{render "collectionHeader" model}}
 
-{{email}}
-
-{{page-one-map}}
+{{page-one-map works=model.works}}
 
 {{page-one-timeline works=model.works}}
 
+{{#if isAuthor}}
+	<footer class="admin-footer">
+		{{#link-to "works.new" (query-params collection=model.id) class="button" title="Create a new work"}}Create a work{{/link-to}}
+	</footer>
+{{/if}}
 {{render "collectionFooter" model}}

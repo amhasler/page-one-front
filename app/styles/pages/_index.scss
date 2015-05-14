@@ -7,4 +7,13 @@
 	.timeline {
 		display:none;
 	}
+	.admin-footer {
+		z-index: 6;
+	  width: 100%;
+	  position: fixed;
+	  bottom: 80px;
+	  .button {
+	  	float: right;
+	  }
+	}
 }
