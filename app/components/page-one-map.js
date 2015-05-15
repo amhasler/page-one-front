@@ -54,7 +54,7 @@ export default Ember.Component.extend({
 	    zoom: 12,
     	center: new google.maps.LatLng(0, 0),
 	    panControl: false,
-	    zoomControl: false,
+	    zoomControl: true,
 	    mapTypeControl: false,
 	    streetViewControl: false,
 	    mapTypeId: MY_MAPTYPE_ID
@@ -76,11 +76,25 @@ export default Ember.Component.extend({
 	},
 	setMarkers: function(map,locations) {
 		var self = this;
+		var work_count = 0
 		//var lat = map.getCenter().lat(); 
     //var lng = map.getCenter().lng(); 
     var bounds = new google.maps.LatLngBounds();
+
+    
     for (var i = 0; i < locations.length; i++) {
 	    var work = locations[i]
+	    var myLatLng = new google.maps.LatLng(
+				work.get('latitude'),
+				work.get('longitude')
+			);
+			var marker = new google.maps.Marker({
+	      position: myLatLng,
+	      map: map,
+		  });
+		  bounds.extend(myLatLng);
+			map.fitBounds(bounds);
+	    /*
 	    var geocoder = new google.maps.Geocoder();
 			geocoder.geocode({'address': work.get('place')}, function(results, status) {
 				if (status == google.maps.GeocoderStatus.OK) {
@@ -92,13 +106,12 @@ export default Ember.Component.extend({
 			      position: myLatLng,
 			      map: map,
 				  });
-				  bounds.extend(myLatLng);
-				  map.fitBounds(bounds);
+				  work_count++
 				}
 			});
+*/
   	}
-  	//console.log(bounds)
-  	return bounds  
+  	
 	}
 });
 
