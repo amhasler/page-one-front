@@ -54,7 +54,7 @@ export default Ember.Component.extend({
 	    zoom: 12,
     	center: new google.maps.LatLng(0, 0),
 	    panControl: false,
-	    zoomControl: true,
+	    zoomControl: false,
 	    mapTypeControl: false,
 	    streetViewControl: false,
 	    mapTypeId: MY_MAPTYPE_ID
