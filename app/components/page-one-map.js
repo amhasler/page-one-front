@@ -80,7 +80,7 @@ export default Ember.Component.extend({
 		//var lat = map.getCenter().lat(); 
     //var lng = map.getCenter().lng(); 
     var bounds = new google.maps.LatLngBounds();
-
+    var infoWindow = new google.maps.InfoWindow();
     
     for (var i = 0; i < locations.length; i++) {
 	    var work = locations[i]
@@ -91,27 +91,54 @@ export default Ember.Component.extend({
 			var marker = new google.maps.Marker({
 	      position: myLatLng,
 	      map: map,
+	      title: work.get('title')
 		  });
+
+		 	var madeDate = self.dateMaker(work);
+		  
+		  var popupContent = '<div id="locationContent">' +
+                           '<h2>' + work.get('title') + '</h2>' +
+                           '<p>' + madeDate + ' | ' + work.get('place') + '</p>'
+                         '</div>';
+			
+			marker.set('popupContent',popupContent)
+
+			google.maps.event.addListener(marker, 'click', function () {
+	        infoWindow.setContent(this.get('popupContent'));
+	        infoWindow.open(map, this);
+	    });
+
 		  bounds.extend(myLatLng);
 			map.fitBounds(bounds);
-	    /*
-	    var geocoder = new google.maps.Geocoder();
-			geocoder.geocode({'address': work.get('place')}, function(results, status) {
-				if (status == google.maps.GeocoderStatus.OK) {
-					var myLatLng = new google.maps.LatLng(
-						results[0].geometry.location.lat(), 
-						results[0].geometry.location.lng()
-					);
-					var marker = new google.maps.Marker({
-			      position: myLatLng,
-			      map: map,
-				  });
-				  work_count++
-				}
-			});
-*/
   	}
+
   	
+  	
+	},
+	dateMaker: function(work) {
+		var finalString;
+		var minYear;
+		var maxYear;
+		if (work.get('min_year')<0) {
+			minYear = work.get('min_year') + " BCE"
+		} else {
+			minYear = work.get('min_year') + " CE"
+		}
+		if (work.get("circa")) {
+			finalString = "ca. " + minYear
+		} else {
+			finalString = minYear
+		}
+		if (work.get('max_year')) {
+			if (work.get('max_year')<0) {
+				maxYear = work.get('max_year') + " BCE"
+			} else {
+				maxYear = work.get('max_year') + " CE"
+			}
+			return finalString + " - " + maxYear;
+		} else {
+			return finalString
+		}
 	}
 });
 

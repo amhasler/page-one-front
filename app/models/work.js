@@ -2,8 +2,8 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
   title: DS.attr('string'),
-  minYear: DS.attr('number'),
-  maxYear: DS.attr('number'),
+  min_year: DS.attr('number'),
+  max_year: DS.attr('number'),
   place: DS.attr('string'),
   latitude: DS.attr('number'),
   longitude: DS.attr('number'),
