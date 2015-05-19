@@ -21,10 +21,13 @@
 		<div class="main-container">
 			{{#if isEditing}}
 				{{inplace-editor model=model text=model.title placeholder="Title" errors=errors.content doFocus=isCreated}}
-				{{inplace-editor model=model text=model.date placeholder="Date" errors=errors.content doFocus=isCreated}}~{{inplace-editor model=model text=model.place placeholder="Location" errors=errors.content doFocus=isCreated}}
+				{{inplace-editor model=model text=model.min_year placeholder="Min Year" errors=errors.content doFocus=isCreated}}-
+				{{inplace-editor model=model text=model.max_year placeholder="Max Year" errors=errors.content doFocus=isCreated}}
+				~{{inplace-editor model=model text=model.place placeholder="Location" errors=errors.content doFocus=isCreated}}
+
 			{{else}}
 				<h1>{{model.title}}</h1>
-				<h2>{{add-bce model.date}}~<span>{{model.place}}</span></h2>
+				<h2>{{add-bce model.min_year model.max_year}}~<span>{{model.place}}</span></h2>
 			{{/if}}
 		</div>
 		<!--

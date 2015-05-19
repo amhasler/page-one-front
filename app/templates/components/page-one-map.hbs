@@ -1,1 +1,9 @@
 <div id="map-canvas"></div>
+<div class="infobox-wrapper">
+  <div class="info-window">
+  	<div class="inner-info-window">
+      {{#link-to 'work' work.work}}<h3>{{work.title}}</h3>{{/link-to}}
+      <p>{{add-bce work.minYear work.maxYear work.circa}}&nbsp;|&nbsp;{{work.location}}</p>
+    </div>
+  </div>
+</div>

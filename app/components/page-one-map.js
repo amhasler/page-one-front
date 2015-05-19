@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 	classNames: ['map'],
+	map: null,
 	didInsertElement: function() {
 		var self = this;
 		//google.maps.event.addDomListener(window, 'load', this.get('initializeMap'));
@@ -80,7 +81,9 @@ export default Ember.Component.extend({
 		//var lat = map.getCenter().lat(); 
     //var lng = map.getCenter().lng(); 
     var bounds = new google.maps.LatLngBounds();
-    var infoWindow = new google.maps.InfoWindow();
+    var infoWindow = new google.maps.InfoWindow({
+    	content: self.$(".info-window").get(0),
+    });
     
     for (var i = 0; i < locations.length; i++) {
 	    var work = locations[i]
@@ -91,20 +94,28 @@ export default Ember.Component.extend({
 			var marker = new google.maps.Marker({
 	      position: myLatLng,
 	      map: map,
-	      title: work.get('title')
+	      title: work.get('title'),
+	      minYear: work.get('min_year'),
+	      maxYear: work.get('max_year'),
+	      location: work.get('place'),
+	      circa: work.get('circa'),
+	      work: work
 		  });
 
 		 	var madeDate = self.dateMaker(work);
 		  
+		  /*
 		  var popupContent = '<div id="locationContent">' +
                            '<h2>' + work.get('title') + '</h2>' +
                            '<p>' + madeDate + ' | ' + work.get('place') + '</p>'
                          '</div>';
 			
 			marker.set('popupContent',popupContent)
+			*/
 
 			google.maps.event.addListener(marker, 'click', function () {
-	        infoWindow.setContent(this.get('popupContent'));
+	        //infoWindow.setContent(this.get('popupContent'));
+	        self.set('work',this);
 	        infoWindow.open(map, this);
 	    });
 
